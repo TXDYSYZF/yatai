@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>车辆保养综合价格计算器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>车辆保养综合价格计算器</h1>
+
+        <!-- 车型选择 -->
+        <label for="carModel">请选择车型:</label>
+        <select id="carModel" required>
+            <option value="">请选择车型</option>
+            <option value="oldMalibu">老款迈锐宝</option>
+            <option value="classicMalibu">经典迈锐宝</option>
+            <option value="newMalibu">新款迈锐宝XL</option>
+            <option value="newMalibu20T">新款迈锐宝XL2.0T5L</option>
+            <option value="cruze">科鲁泽</option>
+            <option value="traxOil">创酷</option>
+            <option value="newCruze">全新科鲁兹</option>
+            <option value="classicCruze">经典科鲁兹</option>
+            <option value="oldCruze">老科鲁兹</option>
+            <option value="cobolt">科沃兹</option>
+            <option value="newCobolt">新科沃兹</option>
+            <option value="traverse">探界者</option>
+            <option value="traverse20T">探界者2.0T5.5L</option>
+            <option value="trailblazer">开拓者5.5L</option>
+            <option value="captiva">科帕奇</option>
+            <option value="smoothpatrol">畅巡</option>
+        </select>
+
+        <!-- 显示车型对应的滤芯价格 -->
+        <div id="filterPrices">
+            <p id="oilFilterPrice"></p>
+            <p id="airFilterPrice"></p>
+            <p id="acFilterPrice"></p>
+        </div>
+
+        <!-- 机油选择 -->
+        <label for="oilType">请选择机油类型:</label>
+        <select id="oilType" required>
+            <option value="">请选择机油类型</option>
+            <option value="cpOil4L">中石油 4L - 198元</option>
+            <option value="shellOil4L">壳牌 4L - 338元</option>
+            <option value="castrol4L">嘉实多 4L - 478元</option>
+            <option value="silvermobil4L">银美孚 4L - 478元</option>
+            <option value="mobilGoldOil4L">金美孚 4L - 554元</option>
+        </select>
+
+        <!-- 附加机油选择 -->
+        <label for="additionaloiltype">请选择附加机油类型:</label>
+        <select id="additionaloiltype" required>
+            <option value="">请选择附加机油类型</option>
+            <option value="cpOil1L">中石油 1L - 50元</option>
+            <option value="shellOil1L">壳牌 1L - 90元</option>
+            <option value="castrol1L">嘉实多 1L - 120元</option>
+            <option value="silvermobil1L">银美孚 1L - 120元</option>            
+            <option value="mobilGoldOil1L">金美孚 1L - 160元</option>
+            <option value="cpOil2L">中石油 2L - 100元</option>
+            <option value="shellOil2L">壳牌 2L - 180元</option>
+            <option value="castrol2L">嘉实多 2L - 240元</option>
+            <option value="silvermobil2L">银美孚 2L - 240元</option>
+            <option value="mobilGoldOil2L">金美孚 2L - 320元</option>
+        </select>
+        
+        <!-- 买二送一机油选择 -->
+        <label for="buy2get1freetype">买二送一:</label>
+        <select id="buy2get1freetype" required>
+            <option value="">请选择机油活动类型</option>
+                    <option value="cpOil8L">中石油买二送一 8L - 198元</option>
+                    <option value="shellOil8L">壳牌买二送一 8L - 338元</option>
+                    <option value="castrol8L">嘉实多买二送一 8L - 478元</option>
+                    <option value="silvermobil8L">银美孚买二送一 8L - 478元</option>
+                    <option value="mobilGoldOil8L">金美孚买二送一 8L - 554元</option>
+                    <option value="cpOil10L">中石油买二送一 10L - 248元</option>
+                    <option value="shellOil10L">壳牌买二送一 10L - 428元</option>
+                    <option value="castrol10L">嘉实多买二送一 10L - 598元</option>
+                    <option value="silvermobil10L">银美孚买二送一 10L - 598元</option>
+                    <option value="mobilGoldOil10L">金美孚买二送一 10L - 714元</option>
+                </select>
+        
+        <!-- 可选滤芯 -->
+        <label for="oilFilter">选择是否添加机油滤芯:</label>
+        <input type="checkbox" style="margin-left: 50px;" id="oilFilter" checked>
+
+        <label for="airFilter">选择是否添加发动机空气滤芯:</label>
+        <input type="checkbox" style="margin-left: 50px;" id="airFilter">
+
+        <label for="acFilter">选择是否添加空调滤芯:</label>
+        <input type="checkbox" style="margin-left: 50px;" id="acFilter">
+
+        <!-- 可勾选项目 -->
+        <label for="airconditioningcleaning">空调清洗: 208元</label>
+        <input type="checkbox" style="margin-left: 50px;" id="airconditioningcleaning">
+
+        <!-- 清洗节气门类型选择 -->
+        <label for="cleaningthrottletype">清洗节气门类型:</label>
+        <select id="cleaningthrottletype" required>
+             <option value="">清洗节气门类型</option>
+                     <option value="cleanthethrottlevalve1.5T">清洗节气门1.5T - 240元</option>
+                     <option value="cleanthethrottlevalve2.0T">清洗节气门2.0T - 300元</option>
+                </select>
+
+        <label for="engineCleaning">发动机内部清洗: 100元</label>
+        <input type="checkbox" style="margin-left: 50px;" id="engineCleaning">
+
+        <label for="brakeFluid">刹车油及刹车清洗 (3万公里): 389元</label>
+        <input type="checkbox" style="margin-left: 50px;" id="brakeFluid">
+
+        <label for="antifreeze">防冻液 (4万公里): 340元</label>
+        <input type="checkbox" style="margin-left: 50px;" id="antifreeze">
+
+        <label for="carbonCleaning">积碳清洗 (3万公里): 280元</label>
+        <input type="checkbox" style="margin-left: 50px;" id="carbonCleaning">
+
+<!-- 变速箱油类型选择 -->
+<label for="transmissionOil">请选择变速箱油类型 5-6万公里:</label>
+<select id="transmissionOil" required>
+    <option value="">请选择变速箱油类型</option>
+    <option value="transmissionOilMachine">机器换 - 1080元</option>
+    <option value="transmissionOilGravity">重力换 - 618元</option>
+    <option value="transmissionOilGravity2.0T">2.0T重力换 - 950元</option>
+    <option value="changxungearboxoilreplacement">畅巡更换变速箱油198*2工时320元 - 516元</option>
+</select>
+        
+        <!-- 工时费 -->
+        <label for="laborCost">请输入工时费:</label>
+        <input type="number" id="laborCost" placeholder="请输入工时费" min="0" required>
+
+        <!-- 计算按钮 -->
+        <button id="calculateTotal">计算总价</button>
+
+        <!-- 显示总价 -->
+        <h2 id="totalPrice">总价: 0元</h2>
+        
+        <!-- 新增一个显示项目详情的 div -->
+        <div id="projectDetails" style="margin-top: 20px; color: #ccc;"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
